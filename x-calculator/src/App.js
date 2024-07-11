@@ -5,29 +5,17 @@ function App() {
   const [input, setInput] = useState("");
   const [ans, setAns] = useState("");
 
-  const add = () => {
-    setInput((prev) => prev + "+");
-  };
-  const substract = () => {};
-  const multiply = () => {};
-  const divide = () => {};
-
   const clear = () => {
     setInput("");
   };
 
   const evalute = () => {
-    let exp = input.split("");
     if (input === "") setAns("Error");
-    let opr1 = Number(exp[0]);
-    let opr2 = Number(exp[exp.length - 1]);
-    let op = exp[1];
-
-    if (op === "+") setAns(opr1 + opr2);
-    if (op === "-") setAns(opr1 - opr2);
-    if (op === "*") setAns(opr1 * opr2);
-    if (op === "/") setAns(opr1 / opr2);
-    console.log(opr1, opr2, op);
+    else {
+      // let res = eval(input);
+      setAns(eval(input));
+      // setInput("");
+    }
   };
 
   return (
