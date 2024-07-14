@@ -15,7 +15,8 @@ function App() {
       const data = await response.json();
       setApiData(data);
     } catch (e) {
-      console.error("failed to fetch data" + e);
+      alert("failed to fetch data");
+      console.error("Error" + e);
     }
   };
 
@@ -28,14 +29,14 @@ function App() {
   const currentEmployees = apiData.slice(firstIndex, lastIndex); // index: 0 - 9
   const lastPageNumber = Math.ceil(apiData.length / datasPerPage);
 
-  // handling previous button 
+  // handling previous button
   const previous = () => {
     if (currentPage === 1) {
       return;
     }
     setCurrentPage((prev) => prev - 1);
   };
-// handling next button
+  // handling next button
   const next = () => {
     if (currentPage === lastPageNumber) {
       return;
@@ -65,7 +66,7 @@ function App() {
         <button onClick={previous} className="prev">
           Previous
         </button>
-        <div className="page_number">{currentPage}</div>
+        <span className="page_number">{currentPage}</span>
         <button onClick={next} className="next">
           Next
         </button>

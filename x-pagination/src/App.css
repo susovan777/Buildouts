@@ -27,14 +27,13 @@ td {
 }
 
 .pagination {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
+  margin-top: 30px;
 }
 
 .page_number {
+  display: inline-block;
   padding: 10px 14px;
+  margin: 0px 20px;
   background-color: #009879;
   color: #fff;
   border-radius: 5px;
