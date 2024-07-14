@@ -28,11 +28,16 @@ td {
 
 .pagination {
   margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
 
 .page_number {
   padding: 10px 14px;
-  margin: 0 10px;
+  background-color: #009879;
+  color: #fff;
+  border-radius: 5px;
 }
 
 button {

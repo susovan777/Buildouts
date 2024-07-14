@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
-import { useState } from "react";
-import Table from "./Table";
+import Table from "./Components/Table";
 
 function App() {
   const [apiData, setApiData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [datasPerPage] = useState(10);
 
   const fetchedData = async () => {
     try {
@@ -14,7 +15,7 @@ function App() {
       const data = await response.json();
       setApiData(data);
     } catch (e) {
-      console.error("Error fetching data: " + e);
+      console.error("failed to fetch data" + e);
     }
   };
 
@@ -22,7 +23,27 @@ function App() {
     fetchedData();
   }, []);
 
-  console.log(apiData);
+  const lastIndex = currentPage * datasPerPage; // 1st page: 1 * 10 = 10
+  const firstIndex = lastIndex - datasPerPage; // 1st page: 10 - 10 = 0
+  const currentEmployees = apiData.slice(firstIndex, lastIndex); // index: 0 - 9
+  const lastPageNumber = Math.ceil(apiData.length / datasPerPage);
+
+  // handling previous button 
+  const previous = () => {
+    if (currentPage === 1) {
+      return;
+    }
+    setCurrentPage((prev) => prev - 1);
+  };
+// handling next button
+  const next = () => {
+    if (currentPage === lastPageNumber) {
+      return;
+    }
+    setCurrentPage((prev) => prev + 1);
+  };
+
+  // console.log(totalPages);
 
   return (
     <div className="App">
@@ -36,16 +57,18 @@ function App() {
             <th>Role</th>
           </tr>
         </thead>
-        {apiData.map((emp) => {
-          return (
-            <Table employee={emp} />
-          )
+        {currentEmployees.map((emp) => {
+          return <Table employee={emp} key={`emp${emp.id}`} />;
         })}
       </table>
       <div className="pagination">
-        <button className="prev">Previous</button>
-        <button className="page_number">1</button>
-        <button className="next">Next</button>
+        <button onClick={previous} className="prev">
+          Previous
+        </button>
+        <div className="page_number">{currentPage}</div>
+        <button onClick={next} className="next">
+          Next
+        </button>
       </div>
     </div>
   );
