@@ -12,7 +12,6 @@ function App() {
   const evalute = () => {
     if (input === "") setAns("Error");
     else {
-      // let res = eval(input);
       setAns(eval(input));
       // setInput("");
     }
