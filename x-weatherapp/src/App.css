@@ -31,14 +31,14 @@ button {
   border-radius: 2px;
   font-size: 16px;
 }
-.cardGroup {
+.weather-cards {
   display: flex;
   gap: 15px;
   justify-content: center;
   margin-top: 50px;
 }
 
-.card {
+.weather-card {
   max-width: 200px;
   padding: 10px 50px;
   border-radius: 5px;

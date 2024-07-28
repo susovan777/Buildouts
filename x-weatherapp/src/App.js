@@ -52,7 +52,7 @@ function App() {
       </form>
       {isLoading && <p>Loading data...</p>}
       {!isLoading && weather && (
-        <div className="cardGroup">
+        <div className="weather-cards">
           <Card title="Temparature" data={`${weather.temp_c}°C`} />
           <Card title="Humidity" data={`${weather.humidity}%`} />
           <Card title="Condition" data={weather.condition.text} />
