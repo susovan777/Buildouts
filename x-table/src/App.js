@@ -1,9 +1,10 @@
-import './App.css';
+import Table from "./Table";
 
 function App() {
   return (
-    <div className="App">
-      
+    <div>
+      <h1>Date and Views Table</h1>
+      <Table />
     </div>
   );
 }
