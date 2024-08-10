@@ -1,25 +1,20 @@
+import { useState } from "react";
 import "./App.css";
+import Modal from "./Modal";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>User Details Modal</h1>
-      <button>Open Form</button>
+  const [isClicked, setIsClicked] = useState(false);
 
-      <div className="modal">
-        <h2>Fill Details</h2>
-        <form>
-          <label>Username:</label>
-          <input type="text" required />
-          <label>Email Address:</label>
-          <input type="email" required />
-          <label>Phone Number:</label>
-          <input type="text" required />
-          <label>Date of Birth:</label>
-          <input type="date" required />
-          <button className="submit-btn">Submit</button>
-        </form>
-      </div>
+  const handleClick = () => {
+    setIsClicked(true);
+  };
+
+  return (
+    <div style={{ "text-align": "center"}}>
+      <h1>User Details Modal</h1>
+      <button onClick={handleClick}>Open Form</button>
+
+      {isClicked && <Modal setIsClicked={setIsClicked} />}
     </div>
   );
 }
