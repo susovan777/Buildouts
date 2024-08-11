@@ -10,9 +10,11 @@ function App() {
   };
 
   return (
-    <div style={{ "text-align": "center"}}>
+    <div style={{ textAlign: "center" }}>
       <h1>User Details Modal</h1>
-      <button onClick={handleClick}>Open Form</button>
+      <button className="open-modal-btn" onClick={handleClick}>
+        Open Form
+      </button>
 
       {isClicked && <Modal setIsClicked={setIsClicked} />}
     </div>

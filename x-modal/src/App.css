@@ -1,16 +1,17 @@
-button {
+.open-modal-btn {
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 5px;
   padding: 10px 18px;
+  z-index: -1;
 }
 
 button:hover {
   background-color: #0f6bcd;
 }
 
-.darkArea {
+.modal {
   background-color: rgba(0, 0, 0, 0.5);
   width: 100vw;
   height: 100vh;
@@ -18,9 +19,10 @@ button:hover {
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 1;
 }
 
-.modal {
+.modal-content {
   /* border: 1px solid green; */
   border-radius: 5px;
   width: 25rem;
@@ -30,6 +32,8 @@ button:hover {
   transform: translate(-50%, -50%);
   padding: 10px 50px;
   background-color: #fff;
+  z-index: 10;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 form {
@@ -52,11 +56,12 @@ input {
   font-size: 17px;
 }
 
-input::placeholder {
-  color: #9a9999;
-}
-
-.submit-btn {
+.submit-button {
   width: 100px;
   margin-bottom: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 18px;
 }
